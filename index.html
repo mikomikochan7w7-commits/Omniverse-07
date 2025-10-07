@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Owari no Seraph - Mini AnimeFLV</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0b0b0b;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #111;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header h1 {
+      color: #00b7ff;
+      margin: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .anime-info {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .anime-info img {
+      width: 200px;
+      border-radius: 10px;
+    }
+    .episodes {
+      margin-top: 30px;
+    }
+    .episode {
+      background-color: #222;
+      border-radius: 10px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .episode img {
+      width: 100px;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #00b7ff;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0095cc;
+    }
+    iframe {
+      width: 100%;
+      height: 480px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mini AnimeFLV</h1>
+  </header>
+
+  <div class="container">
+    <div class="anime-info">
+      <img id="anime-cover" alt="Portada del anime">
+      <div>
+        <h2 id="anime-title"></h2>
+        <p id="anime-sinopsis"></p>
+      </div>
+    </div>
+
+    <div class="episodes" id="episode-list"></div>
+
+    <div id="player-container"></div>
+  </div>
+
+  <script>
+    const anime = {
+      titulo: "Owari no Seraph: Nagoya Kessen-hen",
+      portada: "https://omniverse07.wordpress.com/wp-content/uploads/2024/11/8-sin-titulo5.png",
+      sinopsis: "Segunda temporada de Owari no Seraph.",
+      episodios: [
+        {
+          num: 1,
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/1/th_3.jpg",
+          embed: "https://mega.nz/embed/LqZHhAbI#AAAAAAAAAADzPod3VK52RQAAAAAAAAAA8z6Hd1SudkU"
+        },
+        {
+          num: 2,
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/2/th_3.jpg",
+          embed: "https://mega.nz/embed/KioVHJjR#AAAAAAAAAABDufdxVIxXugAAAAAAAAAAQ7n3cVSMV7o"
+        }
+      ]
+    };
+
+    document.getElementById('anime-title').textContent = anime.titulo;
+    document.getElementById('anime-sinopsis').textContent = anime.sinopsis;
+    document.getElementById('anime-cover').src = anime.portada;
+
+    const episodeList = document.getElementById('episode-list');
+    anime.episodios.forEach(ep => {
+      const div = document.createElement('div');
+      div.className = 'episode';
+      div.innerHTML = `
+        <img src="${ep.thumbnail}" alt="Episodio ${ep.num}">
+        <span>Episodio ${ep.num}</span>
+        <button onclick="verEpisodio(${ep.num})">Ver</button>
+      `;
+      episodeList.appendChild(div);
+    });
+
+    function verEpisodio(num) {
+      const ep = anime.episodios.find(e => e.num === num);
+      const player = document.getElementById('player-container');
+      player.innerHTML = `<iframe src="${ep.embed}" allowfullscreen></iframe>`;
+    }
+  </script>
+</body>
+</html>
