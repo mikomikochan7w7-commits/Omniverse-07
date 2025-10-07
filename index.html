@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini AnimeFLV</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Mini AnimeFLV</h1>
+    <button id="menu-toggle">☰</button>
+  </header>
+
+  <nav id="menu">
+    <ul>
+      <li><a href="catalogo.html">Animes</a></li>
+      <li><a href="#">Películas</a></li>
+      <li><a href="#">Series</a></li>
+      <li><a href="#">Buscar</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <img src="https://omniverse07.wordpress.com/wp-content/uploads/2024/11/8-sin-titulo5.png" alt="Banner principal" />
+      <p>Descubre las páginas oficiales de Omniverse. Contenido en español latino.</p>
+      <a href="catalogo.html"><button>Ir al catálogo</button></a>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('menu-toggle').onclick = () => {
+      document.getElementById('menu').classList.toggle('visible');
+    };
+  </script>
+</body>
+</html>
