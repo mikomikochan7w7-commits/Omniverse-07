@@ -117,38 +117,6 @@ nav ul li a {
 }
 
 .video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.video-card {
-  background-color: #1a1a1a;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.video-card iframe {
-  border-radius: 10px;
-}
-
-.video-card p {
-  margin-top: 10px;
-  color: #ccc;
-}
-
-.mas-nuevos {
-  padding: 30px;
-}
-
-.mas-nuevos h2 {
-  color: #00b7ff;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.video-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
@@ -160,24 +128,24 @@ nav ul li a {
   padding: 15px;
   border-radius: 10px;
   width: 100%;
-  max-width: 480px;
+  max-width: 640px;
   box-sizing: border-box;
   text-align: center;
 }
 
 .video-card iframe {
   width: 100%;
-  height: 270px;
+  height: 360px;
   border-radius: 10px;
 }
 
 .video-card h3 {
   margin: 15px 0 5px;
   color: #00ff99;
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
 
 .video-card p {
   color: #ccc;
-  font-size: 0.95em;
+  font-size: 1em;
 }
