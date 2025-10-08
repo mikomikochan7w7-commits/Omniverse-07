@@ -1,29 +1,89 @@
-.hero-banner {
-  width: 100%;
-  max-width: 900px;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 20px;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #0b0b0b;
+  color: #fff;
 }
 
-.download-section {
+header {
+  background-color: #111;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  color: #00b7ff;
+  margin: 0;
+}
+
+button {
+  background-color: #00b7ff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0095cc;
+}
+
+nav {
+  display: none;
+  background-color: #1a1a1a;
+  padding: 10px 30px;
+}
+
+nav.visible {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: #00b7ff;
+  text-decoration: none;
+}
+
+.hero {
+  text-align: center;
+  padding: 40px 30px;
+}
+
+.hero-banner {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+.download-wrapper {
   margin-top: 40px;
   text-align: center;
 }
 
-.download-section h3 {
-  font-size: 2em;
+.download-title {
+  font-size: 2.4em;
   color: #00b7ff;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .download-btn {
   display: inline-block;
-  padding: 16px 40px;
+  padding: 18px 45px;
   background-color: #00ff99;
   color: #0b0b0b;
   font-weight: bold;
-  font-size: 1.3em;
+  font-size: 1.4em;
   border-radius: 10px;
   text-decoration: none;
   transition: background-color 0.3s ease;
@@ -36,12 +96,56 @@
 }
 
 .mas-nuevos {
-  padding: 60px 30px 30px;
+  padding: 80px 30px 30px;
 }
 
 .mas-nuevos h2 {
-  font-size: 2em;
+  font-size: 2.2em;
   color: #00b7ff;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   text-align: center;
+}
+
+.video-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.video-card {
+  background-color: #1a1a1a;
+  padding: 15px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 640px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.video-card iframe {
+  width: 100%;
+  height: 360px;
+  border-radius: 10px;
+}
+
+.video-card h3 {
+  margin: 15px 0 5px;
+  color: #00ff99;
+  font-size: 1.3em;
+}
+
+.video-card p {
+  color: #ccc;
+  font-size: 1em;
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+  }
+
+  .catalogo {
+    grid-template-columns: 1fr;
+  }
 }
