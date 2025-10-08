@@ -5,6 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Owari no Seraph - Mini AnimeFLV</title>
   <link rel="stylesheet" href="../style.css" />
+  <style>
+    .container {
+      padding: 30px;
+    }
+
+    .anime-info {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      margin-bottom: 30px;
+    }
+
+    .anime-info img {
+      max-width: 300px;
+      border-radius: 10px;
+    }
+
+    .anime-details {
+      flex: 1;
+    }
+
+    .season-selector {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .season-selector select {
+      background-color: #1a1a1a;
+      color: #00b7ff;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: 1px solid #00b7ff;
+      font-size: 1em;
+    }
+
+    .episode {
+      background-color: #1a1a1a;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .episode img {
+      width: 120px;
+      border-radius: 10px;
+    }
+
+    .episode span {
+      font-weight: bold;
+      color: #00ff99;
+    }
+
+    #player-container {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    #player-container iframe {
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+      border-radius: 10px;
+      border: none;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -14,11 +84,31 @@
 
   <div class="container">
     <div class="anime-info">
-      <img id="anime-cover" alt="Portada del anime">
-      <div>
-        <h2 id="anime-title"></h2>
-        <p id="anime-sinopsis"></p>
+      <img id="anime-cover" src="https://shardstore.wordpress.com/wp-content/uploads/2024/10/8-sin-titulo4_20241007213006.png?w=480" alt="Portada del anime">
+      <div class="anime-details">
+        <h2 id="anime-title">Owari No Seraph</h2>
+        <p id="anime-sinopsis">Un misterioso virus aparece sobre la Tierra, el cual mata a todos los humanos infectados mayores de 13 años.</p>
+        <ul>
+          <li><strong>Capítulos:</strong> 12</li>
+          <li><strong>Duración:</strong> 24 min por capítulo</li>
+          <li><strong>Estreno:</strong> 04 abril de 2015</li>
+          <li><strong>Estudio:</strong> Wit Studio</li>
+          <li><strong>MyAnimeList:</strong> 7.62</li>
+          <li><strong>Género:</strong> Acción Fantástica Oscura</li>
+        </ul>
+        <div style="margin-top: 20px;">
+          <button class="download-btn">Descargar Temporada 1</button>
+          <button class="download-btn">Ver Trailer</button>
+        </div>
       </div>
+    </div>
+
+    <div class="season-selector">
+      <label for="season-select"><strong>Seleccionar Temporada:</strong></label><br><br>
+      <select id="season-select" onchange="cambiarTemporada()">
+        <option value="s1">S1: Owari No Seraph</option>
+        <option value="s2">S2: Owari no Seraph: Nagoya Kessen-hen</option>
+      </select>
     </div>
 
     <div class="episodes" id="episode-list"></div>
@@ -27,45 +117,78 @@
   </div>
 
   <script>
-    const anime = {
-      titulo: "Owari no Seraph: Nagoya Kessen-hen",
-      portada: "https://omniverse07.wordpress.com/wp-content/uploads/2024/11/8-sin-titulo5.png",
-      sinopsis: "Segunda temporada de Owari no Seraph.",
-      episodios: [
-        {
-          num: 1,
-          thumbnail: "https://cdn.animeflv.net/screenshots/2250/1/th_3.jpg",
-          embed: "https://mega.nz/embed/LqZHhAbI#AAAAAAAAAADzPod3VK52RQAAAAAAAAAA8z6Hd1SudkU"
-        },
-        {
-          num: 2,
-          thumbnail: "https://cdn.animeflv.net/screenshots/2250/2/th_3.jpg",
-          embed: "https://mega.nz/embed/KioVHJjR#AAAAAAAAAABDufdxVIxXugAAAAAAAAAAQ7n3cVSMV7o"
-        }
-      ]
+    const temporadas = {
+      s1: {
+        titulo: "Owari No Seraph",
+        sinopsis: "Un misterioso virus aparece sobre la Tierra, el cual mata a todos los humanos infectados mayores de 13 años.",
+        portada: "https://shardstore.wordpress.com/wp-content/uploads/2024/10/8-sin-titulo4_20241007213006.png?w=480",
+        episodios: [
+          {
+            num: 1,
+            thumbnail: "https://cdn.animeflv.net/screenshots/2250/1/th_3.jpg",
+            embed: "https://mega.nz/embed/LqZHhAbI#AAAAAAAAAADzPod3VK52RQAAAAAAAAAA8z6Hd1SudkU"
+          },
+          {
+            num: 2,
+            thumbnail: "https://cdn.animeflv.net/screenshots/2250/2/th_3.jpg",
+            embed: "https://mega.nz/embed/KioVHJjR#AAAAAAAAAABDufdxVIxXugAAAAAAAAAAQ7n3cVSMV7o"
+          }
+        ]
+      },
+      s2: {
+        titulo: "Owari no Seraph: Nagoya Kessen-hen",
+        sinopsis: "Segunda temporada de Owari no Seraph.",
+        portada: "https://omniverse07.wordpress.com/wp-content/uploads/2024/11/8-sin-titulo5.png",
+        episodios: [
+          {
+            num: 1,
+            thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
+            embed: "https://mega.nz/embed/LqZHhAbI#AAAAAAAAAADzPod3VK52RQAAAAAAAAAA8z6Hd1SudkU"
+          },
+          {
+            num: 2,
+            thumbnail: "https://cdn.animeflv.net/screenshots/2250/4/th_3.jpg",
+            embed: "https://mega.nz/embed/KioVHJjR#AAAAAAAAAABDufdxVIxXugAAAAAAAAAAQ7n3cVSMV7o"
+          }
+        ]
+      }
     };
 
-    document.getElementById('anime-title').textContent = anime.titulo;
-    document.getElementById('anime-sinopsis').textContent = anime.sinopsis;
-    document.getElementById('anime-cover').src = anime.portada;
+    function cargarTemporada(key) {
+      const anime = temporadas[key];
+      document.getElementById('anime-title').textContent = anime.titulo;
+      document.getElementById('anime-sinopsis').textContent = anime.sinopsis;
+      document.getElementById('anime-cover').src = anime.portada;
 
-    const episodeList = document.getElementById('episode-list');
-    anime.episodios.forEach(ep => {
-      const div = document.createElement('div');
-      div.className = 'episode';
-      div.innerHTML = `
-        <img src="${ep.thumbnail}" alt="Episodio ${ep.num}">
-        <span>Episodio ${ep.num}</span>
-        <button onclick="verEpisodio(${ep.num})">Ver</button>
-      `;
-      episodeList.appendChild(div);
-    });
+      const episodeList = document.getElementById('episode-list');
+      episodeList.innerHTML = '';
+      anime.episodios.forEach(ep => {
+        const div = document.createElement('div');
+        div.className = 'episode';
+        div.innerHTML = `
+          <img src="${ep.thumbnail}" alt="Episodio ${ep.num}">
+          <span>Episodio ${ep.num}</span>
+          <button onclick="verEpisodio('${key}', ${ep.num})">Ver</button>
+        `;
+        episodeList.appendChild(div);
+      });
 
-    function verEpisodio(num) {
-      const ep = anime.episodios.find(e => e.num === num);
+      document.getElementById('player-container').innerHTML = '';
+    }
+
+    function verEpisodio(key, num) {
+      const ep = temporadas[key].episodios.find(e => e.num === num);
       const player = document.getElementById('player-container');
       player.innerHTML = `<iframe src="${ep.embed}" allowfullscreen></iframe>`;
     }
+
+    function cambiarTemporada() {
+      const selected = document.getElementById('season-select').value;
+      cargarTemporada(selected);
+    }
+
+    // Cargar temporada por defecto
+    cargarTemporada('s1');
   </script>
 </body>
 </html>
