@@ -149,3 +149,22 @@ nav ul li a {
   color: #ccc;
   font-size: 1em;
 }
+
+.catalogo-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: #00ff99;
+  color: #0b0b0b;
+  font-weight: bold;
+  font-size: 1.1em;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 0 10px #00ff99;
+}
+
+.catalogo-btn:hover {
+  background-color: #00cc7a;
+  box-shadow: 0 0 15px #00cc7a;
+}
