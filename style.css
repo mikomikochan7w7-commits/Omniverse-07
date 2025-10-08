@@ -91,3 +91,49 @@ nav ul li a {
     grid-template-columns: 1fr;
   }
 }
+
+/* Logo pequeño en el header */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+/* Sección Más Nuevos */
+.mas-nuevos {
+  padding: 30px;
+}
+
+.mas-nuevos h2 {
+  color: #00b7ff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.video-card {
+  background-color: #1a1a1a;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.video-card iframe {
+  border-radius: 10px;
+}
+
+.video-card p {
+  margin-top: 10px;
+  color: #ccc;
+}
