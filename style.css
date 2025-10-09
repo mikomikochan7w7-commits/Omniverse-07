@@ -224,7 +224,7 @@ nav ul li a {
   background-color: #696969;
 }
 
-/* Etiqueta diagonal sobre la portada */
+/* Etiqueta horizontal de estado */
 .etiqueta-diagonal {
   position: absolute;
   bottom: 10px;
@@ -233,8 +233,7 @@ nav ul li a {
   color: white;
   font-size: 0.75em;
   font-weight: bold;
-  padding: 5px 50px;
-  transform: rotate(-45deg);
+  padding: 5px 12px;
   opacity: 0.65;
   border-radius: 5px;
   z-index: 2;
