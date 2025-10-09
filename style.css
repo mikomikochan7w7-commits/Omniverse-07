@@ -200,7 +200,7 @@ nav ul li a {
   font-weight: bold;
   color: white;
   border-radius: 5px;
-  opacity: 0.65;
+  opacity: 0.75; /* +15% más visible */
   z-index: 2;
 }
 
@@ -225,7 +225,7 @@ nav ul li a {
   font-size: 1.1em;
   font-weight: bold;
   padding: 6px 18px;
-  opacity: 0.65;
+  opacity: 0.75; /* +15% más visible */
   border-radius: 5px;
   z-index: 2;
   text-align: center;
