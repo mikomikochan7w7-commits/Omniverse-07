@@ -153,16 +153,6 @@ nav ul li a {
   font-size: 1em;
 }
 
-@media (max-width: 600px) {
-  nav ul {
-    flex-direction: column;
-  }
-
-  .catalogo {
-    grid-template-columns: 1fr;
-  }
-}
-
 .catalogo-titulo {
   font-size: 2.4em;
   color: #00b7ff;
@@ -254,12 +244,17 @@ nav ul li a {
   justify-content: center;
   align-items: center;
   z-index: 9999;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 #loading-screen img {
   transform: scale(2.5);
   transform-origin: top center;
   margin-bottom: 80px;
+  display: block;
+  max-width: 90vw;
+  height: auto;
 }
 
 #loading-screen p {
@@ -267,4 +262,25 @@ nav ul li a {
   font-size: 1.2em;
   font-weight: bold;
   text-align: center;
+  margin: 0;
+}
+
+/* Adaptación para pantallas pequeñas */
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+  }
+
+  .catalogo {
+    grid-template-columns: 1fr;
+  }
+
+  #loading-screen img {
+    transform: scale(1.5);
+    margin-bottom: 40px;
+  }
+
+  #loading-screen p {
+    font-size: 1em;
+  }
 }
