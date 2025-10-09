@@ -257,10 +257,7 @@ nav ul li a {
 }
 
 #loading-screen img {
-  width: 1280px;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  transform: scale(2.5);
 }
 
 #loading-screen p {
