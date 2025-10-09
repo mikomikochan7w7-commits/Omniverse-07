@@ -9,7 +9,7 @@ header {
   background-color: #111;
   padding: 15px 30px;
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between;
   align-items: center;
 }
 
@@ -177,85 +177,6 @@ nav ul li a {
 }
 
 .anime-card {
-  background-color: #1a1a1a;
-  border-radius: 10px;
-  padding: 15px;
-  text-align: center;
-  box-shadow: 0 0 10px #000;
-  transition: transform 0.3s ease;
-}
-
-.anime-card:hover {
-  transform: scale(1.03);
-}
-
-.anime-card img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-.anime-card h3 {
-  color: #00ff99;
-  margin-bottom: 10px;
-  font-size: 1.2em;
-}
-
-.anime-card button {
-  background-color: #00b7ff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.anime-card button:hover {
-  background-color: #0095cc;
-}
-
-.etiqueta-superior {
-  position: absolute;
-  top: 10px;
-  padding: 4px 10px;
-  font-size: 0.75em;
-  font-weight: bold;
-  color: white;
-  border-radius: 5px;
-  opacity: 0.15;
-}
-
-.etiqueta-superior.izquierda {
-  left: 10px;
-  background-color: #3FEB9A;
-}
-
-.etiqueta-superior.derecha {
-  right: 10px;
-  background-color: #696969;
-}
-
-.etiqueta-diagonal {
-  position: absolute;
-  bottom: 10px;
-  right: -40px;
-  background-color: #4C7A79;
-  color: white;
-  font-size: 0.75em;
-  font-weight: bold;
-  padding: 5px 50px;
-  transform: rotate(-45deg);
-  opacity: 0.65;
-  border-radius: 5px;
-}
-
-/* Asegurarse que anime-card tenga posición relativa */
-.anime-card {
-  position: relative;
-}
-
-.anime-card {
   position: relative;
   background-color: #1a1a1a;
   border-radius: 10px;
@@ -264,6 +185,10 @@ nav ul li a {
   box-shadow: 0 0 10px #000;
   transition: transform 0.3s ease;
   overflow: hidden;
+}
+
+.anime-card:hover {
+  transform: scale(1.03);
 }
 
 .imagen-wrapper {
@@ -299,11 +224,11 @@ nav ul li a {
   background-color: #696969;
 }
 
-/* Etiqueta diagonal */
+/* Etiqueta diagonal corregida */
 .etiqueta-diagonal {
   position: absolute;
-  top: 10px;
-  right: -40px;
+  bottom: -20px;
+  right: -35px;
   background-color: #4C7A79;
   color: white;
   font-size: 0.75em;
