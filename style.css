@@ -224,12 +224,12 @@ nav ul li a {
   background-color: #696969;
 }
 
-/* Etiqueta centrada y grande de estado */
+/* Etiqueta centrada en la parte inferior */
 .etiqueta-diagonal {
   position: absolute;
-  top: 50%;
+  bottom: 10px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   background-color: #4C7A79;
   color: white;
   font-size: 1em;
