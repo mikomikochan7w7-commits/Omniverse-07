@@ -258,6 +258,8 @@ nav ul li a {
 
 #loading-screen img {
   transform: scale(2.5);
+  transform-origin: top center;
+  margin-bottom: 80px;
 }
 
 #loading-screen p {
