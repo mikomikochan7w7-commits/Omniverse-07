@@ -104,6 +104,9 @@
       padding: 15px;
       border-radius: 10px;
       margin-bottom: 20px;
+    }
+
+    .episode-header {
       display: flex;
       align-items: center;
       gap: 20px;
@@ -119,12 +122,16 @@
       color: #00ff99;
     }
 
-    #player-container {
-      margin-top: 40px;
+    .player-card {
+      margin-top: 15px;
+      background-color: #111;
+      padding: 20px;
+      border-radius: 10px;
       text-align: center;
+      display: none;
     }
 
-    #player-container iframe {
+    .player-card iframe {
       width: 100%;
       max-width: 800px;
       height: 450px;
@@ -172,122 +179,128 @@
 
     <div class="episodes" id="episode-list"></div>
 
-    <div id="player-container"></div>
-  </div>
+    <script>
+  const temporadas = {
+    s1: {
+      episodios: [
+        {
+          num: 1,
+          titulo: "El mundo del legado de sangre",
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/1/th_3.jpg",
+          embed: "https://mega.nz/embed/LqZHhAbI#AAAAAAAAAADzPod3VK52RQAAAAAAAAAA8z6Hd1SudkU"
+        },
+        {
+          num: 2,
+          titulo: "La Humanidad Tras La Caída",
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/2/th_3.jpg",
+          embed: "https://mega.nz/embed/KioVHJjR#AAAAAAAAAABDufdxVIxXugAAAAAAAAAAQ7n3cVSMV7o"
+        },
+        {
+          num: 3,
+          titulo: "El Demonio Que Vive en Tu Corazon",
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
+          embed: "https://mega.nz/embed/placeholder"
+        },
+        {
+          num: 4,
+          titulo: "Mikaela el Vampiroh",
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
+          embed: "https://mega.nz/embed/placeholder"
+        },
+        {
+          num: 5,
+          titulo: "El Pacto Del Demonio Oscuro",
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
+          embed: "https://mega.nz/embed/placeholder"
+        },
+        {
+          num: 6,
+          titulo: "Una Nueva Familia",
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
+          embed: "https://mega.nz/embed/placeholder"
+        },
+        {
+          num: 7,
+          titulo: "El Escuadrón De Mitsuba",
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
+          embed: "https://mega.nz/embed/placeholder"
+        },
+        {
+          num: 8,
+          titulo: "El Inicio Del Exterminio",
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
+          embed: "https://mega.nz/embed/placeholder"
+        },
+        {
+          num: 9,
+          titulo: "El Ataque De Los Vampiros",
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
+          embed: "https://mega.nz/embed/placeholder"
+        },
+        {
+          num: 10,
+          titulo: "El Resultado De Las Elecciones",
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
+          embed: "https://mega.nz/embed/placeholder"
+        },
+        {
+          num: 11,
+          titulo: "El Rencuentro De Los Amigos De La Infancia…",
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
+          embed: "https://mega.nz/embed/placeholder"
+        },
+        {
+          num: 12,
+          titulo: "Todos Pecadores",
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
+          embed: "https://mega.nz/embed/placeholder"
+        }
+      ]
+    }
+  };
 
-  <script>
-    const temporadas = {
-      s1: {
-        episodios: [
-          {
-            num: 1,
-            titulo: "El mundo del legado de sangre",
-            thumbnail: "https://cdn.animeflv.net/screenshots/2250/1/th_3.jpg",
-            embed: "https://mega.nz/embed/LqZHhAbI#AAAAAAAAAADzPod3VK52RQAAAAAAAAAA8z6Hd1SudkU"
-          },
-          {
-            num: 2,
-            titulo: "La Humanidad Tras La Caída",
-            thumbnail: "https://cdn.animeflv.net/screenshots/2250/2/th_3.jpg",
-            embed: "https://mega.nz/embed/KioVHJjR#AAAAAAAAAABDufdxVIxXugAAAAAAAAAAQ7n3cVSMV7o"
-          },
-          {
-            num: 3,
-            titulo: "El Demonio Que Vive en Tu Corazon",
-            thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
-            embed: "https://mega.nz/embed/placeholder"
-          },
-          {
-            num: 4,
-            titulo: "Mikaela el Vampiroh",
-            thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
-            embed: "https://mega.nz/embed/placeholder"
-          },
-          {
-            num: 5,
-            titulo: "El Pacto Del Demonio Oscuro",
-            thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
-            embed: "https://mega.nz/embed/placeholder"
-          },
-          {
-            num: 6,
-            titulo: "Una Nueva Familia",
-            thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
-            embed: "https://mega.nz/embed/placeholder"
-          },
-          {
-            num: 7,
-            titulo: "El Escuadrón De Mitsuba",
-            thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
-            embed: "https://mega.nz/embed/placeholder"
-          },
-          {
-            num: 8,
-            titulo: "El Inicio Del Exterminio",
-            thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
-            embed: "https://mega.nz/embed/placeholder"
-          },
-          {
-            num: 9,
-            titulo: "El Ataque De Los Vampiros",
-            thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
-            embed: "https://mega.nz/embed/placeholder"
-          },
-          {
-            num: 10,
-            titulo: "El Resultado De Las Elecciones",
-            thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
-            embed: "https://mega.nz/embed/placeholder"
-          },
-         {
-  num: 11,
-  titulo: "El Rencuentro De Los Amigos De La Infancia…",
-  thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
-  embed: "https://mega.nz/embed/placeholder"
-},
-{
-  num: 12,
-  titulo: "Todos Pecadores",
-  thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
-  embed: "https://mega.nz/embed/placeholder"
-}
-        ]
-      }
-    };
-
-    function cargarTemporada() {
-      const episodeList = document.getElementById('episode-list');
-      episodeList.innerHTML = '';
-      temporadas.s1.episodios.forEach(ep => {
-        const div = document.createElement('div');
-        div.className = 'episode';
-        div.innerHTML = `
+  function cargarTemporada() {
+    const episodeList = document.getElementById('episode-list');
+    episodeList.innerHTML = '';
+    temporadas.s1.episodios.forEach(ep => {
+      const div = document.createElement('div');
+      div.className = 'episode';
+      div.innerHTML = `
+        <div class="episode-header">
           <img src="${ep.thumbnail}" alt="Episodio ${ep.num}">
           <span>Episodio ${ep.num}: ${ep.titulo}</span>
           <button onclick="verEpisodio(${ep.num})">Ver</button>
-        `;
-        episodeList.appendChild(div);
-      });
+        </div>
+        <div class="player-card" id="player-${ep.num}"></div>
+      `;
+      episodeList.appendChild(div);
+    });
+  }
+  function verEpisodio(num) {
+    const ep = temporadas.s1.episodios.find(e => e.num === num);
+    const container = document.getElementById(`player-${num}`);
+    container.innerHTML = `<iframe src="${ep.embed}" allowfullscreen></iframe>`;
+    container.style.display = 'block';
 
-      document.getElementById('player-container').innerHTML = '';
-    }
-
-    function verEpisodio(num) {
-      const ep = temporadas.s1.episodios.find(e => e.num === num);
-      const player = document.getElementById('player-container');
-      player.innerHTML = `<iframe src="${ep.embed}" allowfullscreen></iframe>`;
-    }
-
-    function cambiarTemporada() {
-      const selected = document.getElementById('season-select').value;
-      if (selected === 's2') {
-        window.location.href = 'Nagoya.html';
-      } else {
-        cargarTemporada();
+    // Ocultar otros reproductores
+    document.querySelectorAll('.player-card').forEach(card => {
+      if (card.id !== `player-${num}`) {
+        card.style.display = 'none';
+        card.innerHTML = '';
       }
-    }
+    });
+  }
 
-    cargarTemporada();
-  </script>
+  function cambiarTemporada() {
+    const selected = document.getElementById('season-select').value;
+    if (selected === 's2') {
+      window.location.href = 'Nagoya.html';
+    } else {
+      cargarTemporada();
+    }
+  }
+
+  cargarTemporada();
+</script>
 </body>
 </html>
