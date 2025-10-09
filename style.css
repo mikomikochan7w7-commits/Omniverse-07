@@ -248,13 +248,21 @@ nav ul li a {
   box-sizing: border-box;
 }
 
-#loading-screen img {
+.gif-wrapper {
   transform: scale(2.5);
   transform-origin: top center;
   margin-bottom: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#loading-screen img {
   display: block;
   max-width: 90vw;
   height: auto;
+  border-radius: 10px;
 }
 
 #loading-screen p {
@@ -275,7 +283,7 @@ nav ul li a {
     grid-template-columns: 1fr;
   }
 
-  #loading-screen img {
+  .gif-wrapper {
     transform: scale(1.5);
     margin-bottom: 60px;
   }
