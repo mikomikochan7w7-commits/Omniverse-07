@@ -82,7 +82,7 @@
     }
 
     .season-selector {
-      margin: 40px 0 20px;
+      margin: 20px 0 40px;
       text-align: center;
     }
 
@@ -138,7 +138,16 @@
 
   <div class="container">
     <div class="anime-info">
-      <img id="anime-cover" src="https://shardstore.wordpress.com/wp-content/uploads/2024/10/8-sin-titulo4_20241007213006.png?w=480" alt="Portada del anime">
+      <div style="text-align: center;">
+        <img id="anime-cover" src="https://shardstore.wordpress.com/wp-content/uploads/2024/10/8-sin-titulo4_20241007213006.png?w=480" alt="Portada del anime">
+        <div class="season-selector">
+          <label for="season-select"><strong>Seleccionar Temporada:</strong></label><br><br>
+          <select id="season-select" onchange="cambiarTemporada()">
+            <option value="s1">S1: Owari No Seraph</option>
+            <option value="s2">S2: Owari no Seraph: Nagoya Kessen-hen</option>
+          </select>
+        </div>
+      </div>
       <div class="anime-details">
         <h2 id="anime-title">Owari No Seraph</h2>
         <p id="anime-sinopsis">Un misterioso virus aparece sobre la Tierra, el cual mata a todos los humanos infectados mayores de 13 años.</p>
@@ -156,14 +165,6 @@
           <a href="https://www.youtube.com/watch?v=NtzDAmRhD9s" target="_blank" class="trailer">Ver Trailer</a>
         </div>
       </div>
-    </div>
-
-    <div class="season-selector">
-      <label for="season-select"><strong>Seleccionar Temporada:</strong></label><br><br>
-      <select id="season-select" onchange="cambiarTemporada()">
-        <option value="s1">S1: Owari No Seraph</option>
-        <option value="s2">S2: Owari no Seraph: Nagoya Kessen-hen</option>
-      </select>
     </div>
 
     <div class="episodes" id="episode-list"></div>
