@@ -251,7 +251,7 @@ nav ul li a {
 #loading-screen img {
   transform: scale(2.5);
   transform-origin: top center;
-  margin-bottom: 80px;
+  margin-bottom: 120px;
   display: block;
   max-width: 90vw;
   height: auto;
@@ -277,7 +277,7 @@ nav ul li a {
 
   #loading-screen img {
     transform: scale(1.5);
-    margin-bottom: 40px;
+    margin-bottom: 60px;
   }
 
   #loading-screen p {
