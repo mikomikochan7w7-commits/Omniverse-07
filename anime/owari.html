@@ -27,8 +27,57 @@
       flex: 1;
     }
 
+    #anime-title {
+      font-size: 2.8em;
+      color: #00b7ff;
+      margin-bottom: 10px;
+    }
+
+    #anime-sinopsis {
+      margin-bottom: 20px;
+    }
+
+    .anime-details ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .anime-details ul li {
+      margin-bottom: 12px;
+      font-size: 1em;
+    }
+
+    .anime-details ul li strong {
+      color: #00ff37;
+      margin-right: 5px;
+    }
+
+    .anime-details ul li span {
+      color: #fff;
+    }
+
+    .anime-details .action-buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .action-buttons a {
+      background-color: #00b7ff;
+      color: white;
+      padding: 8px 18px;
+      font-size: 0.95em;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .action-buttons a:hover {
+      background-color: #0095cc;
+    }
+
     .season-selector {
-      margin: 20px 0;
+      margin: 30px 0;
       text-align: center;
     }
 
@@ -89,16 +138,17 @@
         <h2 id="anime-title">Owari No Seraph</h2>
         <p id="anime-sinopsis">Un misterioso virus aparece sobre la Tierra, el cual mata a todos los humanos infectados mayores de 13 años.</p>
         <ul>
-          <li><strong>Capítulos:</strong> 12</li>
-          <li><strong>Duración:</strong> 24 min por capítulo</li>
-          <li><strong>Estreno:</strong> 04 abril de 2015</li>
-          <li><strong>Estudio:</strong> Wit Studio</li>
-          <li><strong>MyAnimeList:</strong> 7.62</li>
-          <li><strong>Género:</strong> Acción Fantástica Oscura</li>
+          <li><strong>Cantidad de Capítulos:</strong> <span>12</span></li>
+          <li><strong>Temporadas:</strong> <span>2</span></li>
+          <li><strong>Idioma:</strong> <span>Español Castellano</span></li>
+          <li><strong>Subtítulos:</strong> <span>NO</span></li>
+          <li><strong>Fecha de Estreno:</strong> <span>4 de abril de 2015</span></li>
+          <li><strong>Mayoria de Edad:</strong> <span>13+</span></li>
+          <li><strong>Estado:</strong> <span>Finalizado</span></li>
         </ul>
-        <div style="margin-top: 20px;">
-          <button class="download-btn">Descargar Temporada 1</button>
-          <button class="download-btn">Ver Trailer</button>
+        <div class="action-buttons">
+          <a href="https://mega.io/es/" target="_blank">Descargar Temporada 1</a>
+          <a href="https://www.youtube.com/watch?v=NtzDAmRhD9s" target="_blank">Ver Trailer</a>
         </div>
       </div>
     </div>
@@ -119,9 +169,6 @@
   <script>
     const temporadas = {
       s1: {
-        titulo: "Owari No Seraph",
-        sinopsis: "Un misterioso virus aparece sobre la Tierra, el cual mata a todos los humanos infectados mayores de 13 años.",
-        portada: "https://shardstore.wordpress.com/wp-content/uploads/2024/10/8-sin-titulo4_20241007213006.png?w=480",
         episodios: [
           {
             num: 1,
@@ -134,41 +181,19 @@
             embed: "https://mega.nz/embed/KioVHJjR#AAAAAAAAAABDufdxVIxXugAAAAAAAAAAQ7n3cVSMV7o"
           }
         ]
-      },
-      s2: {
-        titulo: "Owari no Seraph: Nagoya Kessen-hen",
-        sinopsis: "Segunda temporada de Owari no Seraph.",
-        portada: "https://omniverse07.wordpress.com/wp-content/uploads/2024/11/8-sin-titulo5.png",
-        episodios: [
-          {
-            num: 1,
-            thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
-            embed: "https://mega.nz/embed/LqZHhAbI#AAAAAAAAAADzPod3VK52RQAAAAAAAAAA8z6Hd1SudkU"
-          },
-          {
-            num: 2,
-            thumbnail: "https://cdn.animeflv.net/screenshots/2250/4/th_3.jpg",
-            embed: "https://mega.nz/embed/KioVHJjR#AAAAAAAAAABDufdxVIxXugAAAAAAAAAAQ7n3cVSMV7o"
-          }
-        ]
       }
     };
 
-    function cargarTemporada(key) {
-      const anime = temporadas[key];
-      document.getElementById('anime-title').textContent = anime.titulo;
-      document.getElementById('anime-sinopsis').textContent = anime.sinopsis;
-      document.getElementById('anime-cover').src = anime.portada;
-
+    function cargarTemporada() {
       const episodeList = document.getElementById('episode-list');
       episodeList.innerHTML = '';
-      anime.episodios.forEach(ep => {
+      temporadas.s1.episodios.forEach(ep => {
         const div = document.createElement('div');
         div.className = 'episode';
         div.innerHTML = `
           <img src="${ep.thumbnail}" alt="Episodio ${ep.num}">
           <span>Episodio ${ep.num}</span>
-          <button onclick="verEpisodio('${key}', ${ep.num})">Ver</button>
+          <button onclick="verEpisodio(${ep.num})">Ver</button>
         `;
         episodeList.appendChild(div);
       });
@@ -176,19 +201,22 @@
       document.getElementById('player-container').innerHTML = '';
     }
 
-    function verEpisodio(key, num) {
-      const ep = temporadas[key].episodios.find(e => e.num === num);
+    function verEpisodio(num) {
+      const ep = temporadas.s1.episodios.find(e => e.num === num);
       const player = document.getElementById('player-container');
       player.innerHTML = `<iframe src="${ep.embed}" allowfullscreen></iframe>`;
     }
 
     function cambiarTemporada() {
       const selected = document.getElementById('season-select').value;
-      cargarTemporada(selected);
+      if (selected === 's2') {
+        window.location.href = 'Nagoya.html';
+      } else {
+        cargarTemporada();
+      }
     }
 
-    // Cargar temporada por defecto
-    cargarTemporada('s1');
+    cargarTemporada();
   </script>
 </body>
 </html>
