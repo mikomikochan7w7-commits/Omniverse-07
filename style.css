@@ -9,7 +9,7 @@ header {
   background-color: #111;
   padding: 15px 30px;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -224,11 +224,11 @@ nav ul li a {
   background-color: #696969;
 }
 
-/* Etiqueta diagonal corregida */
+/* Etiqueta diagonal sobre la portada */
 .etiqueta-diagonal {
   position: absolute;
-  bottom: -20px;
-  right: -35px;
+  bottom: 10px;
+  right: 10px;
   background-color: #4C7A79;
   color: white;
   font-size: 0.75em;
