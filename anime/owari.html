@@ -380,14 +380,17 @@
     const serverList = document.getElementById(`servers-${num}`);
 
     serverList.innerHTML = `
-      <span><strong>Servidores:</strong></span>
-      <ul style="list-style:none; padding-left:0; margin-top:8px; display:flex; gap:10px; flex-wrap:wrap;">
-        <li><button onclick="verEpisodio(${num}, 'StreamWish')">StreamWish</button></li>
-        <li><button onclick="verEpisodio(${num}, 'Mega')">Mega</button></li>
-        <li><button onclick="verEpisodio(${num}, 'StreamTape')">StreamTape</button></li>
-        <li><button onclick="verEpisodio(${num}, 'oKru')">oKru</button></li>
-      </ul>
-    `;
+  <div style="text-align: center;">
+    <span style="display: block; margin-bottom: 10px;"><strong>Servidores:</strong></span>
+    <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+      <button onclick="verEpisodio(${num}, 'StreamWish')">StreamWish</button>
+      <button onclick="verEpisodio(${num}, 'Mega')">Mega</button>
+      <button onclick="verEpisodio(${num}, 'StreamTape')">StreamTape</button>
+      <button onclick="verEpisodio(${num}, 'oKru')">oKru</button>
+    </div>
+  </div>
+`;
+
 
     container.innerHTML = serverList.outerHTML + `<iframe src="${url}" allowfullscreen></iframe>`;
     container.style.display = 'block';
