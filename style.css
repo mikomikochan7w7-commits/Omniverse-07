@@ -200,7 +200,7 @@ nav ul li a {
   font-weight: bold;
   color: white;
   border-radius: 5px;
-  opacity: 0.75; /* +15% más visible */
+  opacity: 0.75;
   z-index: 2;
 }
 
@@ -214,7 +214,6 @@ nav ul li a {
   background-color: #696969;
 }
 
-/* Etiqueta horizontal centrada en la parte inferior */
 .etiqueta-diagonal {
   position: absolute;
   bottom: 10px;
@@ -225,7 +224,7 @@ nav ul li a {
   font-size: 1.1em;
   font-weight: bold;
   padding: 6px 18px;
-  opacity: 0.75; /* +15% más visible */
+  opacity: 0.75;
   border-radius: 5px;
   z-index: 2;
   text-align: center;
@@ -293,8 +292,6 @@ nav ul li a {
   }
 }
 
-/* ...todo tu CSS original intacto... */
-
 /* Lista de servidores encima del reproductor */
 .server-list {
   margin: 10px 0;
@@ -314,18 +311,19 @@ nav ul li a {
   flex-wrap: wrap;
 }
 
+/* Botones de servidores no seleccionados */
 .server-list li button {
-  background-color: #1a1a1a;
+  background-color: #000;
   padding: 6px 12px;
   border-radius: 6px;
-  color: #fff;
+  color: #00ff99;
   font-weight: bold;
-  border: none;
+  border: 2px solid #00ff99;
   cursor: pointer;
-  box-shadow: 0 0 5px #00ff99;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+/* Hover para botones no seleccionados */
 .server-list li button:hover {
   background-color: #00ff99;
   color: #0b0b0b;
@@ -336,4 +334,5 @@ nav ul li a {
   background-color: #00FFE5 !important;
   color: #0b0b0b !important;
   box-shadow: 0 0 8px #00FFE5;
+  border: 2px solid #00FFE5 !important;
 }
