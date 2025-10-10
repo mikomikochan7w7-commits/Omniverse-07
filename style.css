@@ -292,3 +292,41 @@ nav ul li a {
     font-size: 1em;
   }
 }
+
+/* ...todo tu CSS original intacto... */
+
+/* Lista de servidores encima del reproductor */
+.server-list {
+  margin: 10px 0;
+  padding: 10px 15px;
+  background-color: #111;
+  border-radius: 8px;
+  color: #00ff99;
+  font-size: 0.95em;
+}
+
+.server-list ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 5px 0 0;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.server-list li button {
+  background-color: #1a1a1a;
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 5px #00ff99;
+  transition: background-color 0.3s ease;
+}
+
+.server-list li button:hover {
+  background-color: #00ff99;
+  color: #0b0b0b;
+}
