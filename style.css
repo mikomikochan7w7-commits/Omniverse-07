@@ -330,3 +330,10 @@ nav ul li a {
   background-color: #00ff99;
   color: #0b0b0b;
 }
+
+/* Botón activo del servidor seleccionado */
+.server-list .active-server {
+  background-color: #00FFE5 !important;
+  color: #0b0b0b !important;
+  box-shadow: 0 0 8px #00FFE5;
+}
