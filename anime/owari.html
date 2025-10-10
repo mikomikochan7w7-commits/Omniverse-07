@@ -220,10 +220,10 @@
         {
           num: 1,
           titulo: "El mundo del legado de sangre",
-          thumbnail: "https://cdn.animeflv.net/screenshots/2250/1/th_3.jpg",
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
           servidores: {
             StreamWish: "https://streamwish.to/embed/placeholder",
-            Mega: "https://mega.nz/embed/LqZHhAbI#AAAAAAAAAADzPod3VK52RQAAAAAAAAAA8z6Hd1SudkU",
+            Mega: "https://mega.nz/embed/placeholder",
             StreamTape: "https://streamtape.com/e/placeholder",
             oKru: "https://ok.ru/videoembed/placeholder"
           }
@@ -231,10 +231,10 @@
         {
           num: 2,
           titulo: "La Humanidad Tras La Caída",
-          thumbnail: "https://cdn.animeflv.net/screenshots/2250/2/th_3.jpg",
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
           servidores: {
             StreamWish: "https://streamwish.to/embed/placeholder",
-            Mega: "https://mega.nz/embed/KioVHJjR#AAAAAAAAAABDufdxVIxXugAAAAAAAAAAQ7n3cVSMV7o",
+            Mega: "https://mega.nz/embed/placeholder",
             StreamTape: "https://streamtape.com/e/placeholder",
             oKru: "https://ok.ru/videoembed/placeholder"
           }
@@ -249,8 +249,106 @@
             StreamTape: "https://streamtape.com/e/placeholder",
             oKru: "https://ok.ru/videoembed/placeholder"
           }
+        },
+        {
+          num: 4,
+          titulo: "Mikaela el Vampiro",
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
+          servidores: {
+            StreamWish: "https://streamwish.to/embed/placeholder",
+            Mega: "https://mega.nz/embed/placeholder",
+            StreamTape: "https://streamtape.com/e/placeholder",
+            oKru: "https://ok.ru/videoembed/placeholder"
+          }
+        },
+        {
+          num: 5,
+          titulo: "El Pacto Del Demonio Oscuro",
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
+          servidores: {
+            StreamWish: "https://streamwish.to/embed/placeholder",
+            Mega: "https://mega.nz/embed/placeholder",
+            StreamTape: "https://streamtape.com/e/placeholder",
+            oKru: "https://ok.ru/videoembed/placeholder"
+          }
+        },
+        {
+          num: 6,
+          titulo: "Una Nueva Familia",
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
+          servidores: {
+            StreamWish: "https://streamwish.to/embed/placeholder",
+            Mega: "https://mega.nz/embed/placeholder",
+            StreamTape: "https://streamtape.com/e/placeholder",
+            oKru: "https://ok.ru/videoembed/placeholder"
+          }
+        },
+        {
+          num: 7,
+          titulo: "El Escuadrón De Mitsuba",
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
+          servidores: {
+            StreamWish: "https://streamwish.to/embed/placeholder",
+            Mega: "https://mega.nz/embed/placeholder",
+            StreamTape: "https://streamtape.com/e/placeholder",
+            oKru: "https://ok.ru/videoembed/placeholder"
+          }
+        },
+        {
+          num: 8,
+          titulo: "El Inicio Del Exterminio",
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
+          servidores: {
+            StreamWish: "https://streamwish.to/embed/placeholder",
+            Mega: "https://mega.nz/embed/placeholder",
+            StreamTape: "https://streamtape.com/e/placeholder",
+            oKru: "https://ok.ru/videoembed/placeholder"
+          }
+        },
+        {
+          num: 9,
+          titulo: "El Ataque De Los Vampiros",
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
+          servidores: {
+            StreamWish: "https://streamwish.to/embed/placeholder",
+            Mega: "https://mega.nz/embed/placeholder",
+            StreamTape: "https://streamtape.com/e/placeholder",
+            oKru: "https://ok.ru/videoembed/placeholder"
+          }
+        },
+        {
+          num: 10,
+          titulo: "El Resultado De Las Elecciones",
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
+          servidores: {
+            StreamWish: "https://streamwish.to/embed/placeholder",
+            Mega: "https://mega.nz/embed/placeholder",
+            StreamTape: "https://streamtape.com/e/placeholder",
+            oKru: "https://ok.ru/videoembed/placeholder"
+          }
+        },
+        {
+          num: 11,
+          titulo: "El Rencuentro De Los Amigos De La Infancia…",
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
+          servidores: {
+            StreamWish: "https://streamwish.to/embed/placeholder",
+            Mega: "https://mega.nz/embed/placeholder",
+            StreamTape: "https://streamtape.com/e/placeholder",
+            oKru: "https://ok.ru/videoembed/placeholder"
+          }
+        },
+        {
+          num: 12,
+          titulo: "Todos Pecadores",
+          thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
+          servidores: {
+            StreamWish: "https://streamwish.to/embed/placeholder",
+            Mega: "https://mega.nz/embed/placeholder",
+            StreamTape: "https://streamtape.com/e/placeholder",
+            oKru: "https://ok.ru/videoembed/placeholder"
+          }
         }
-        // Podés seguir agregando los episodios 4 al 12 con el mismo formato
       ]
     }
   };
@@ -265,17 +363,11 @@
         <div class="episode-header">
           <img src="${ep.thumbnail}" alt="Episodio ${ep.num}">
           <span>Episodio ${ep.num}: ${ep.titulo}</span>
+          <button onclick="verEpisodio(${ep.num})">Ver</button>
         </div>
-        <div class="server-list">
-          <span><strong>Servidores:</strong></span>
-          <ul>
-            <li><button onclick="verEpisodio(${ep.num}, 'StreamWish')">StreamWish</button></li>
-            <li><button onclick="verEpisodio(${ep.num}, 'Mega')">Mega</button></li>
-            <li><button onclick="verEpisodio(${ep.num}, 'StreamTape')">StreamTape</button></li>
-            <li><button onclick="verEpisodio(${ep.num}, 'oKru')">oKru</button></li>
-          </ul>
+        <div class="player-card" id="player-${ep.num}">
+          <div class="server-list" id="servers-${ep.num}" style="margin-bottom: 15px;"></div>
         </div>
-        <div class="player-card" id="player-${ep.num}"></div>
       `;
       episodeList.appendChild(div);
     });
@@ -285,7 +377,19 @@
     const ep = temporadas.s1.episodios.find(e => e.num === num);
     const url = ep.servidores[servidor];
     const container = document.getElementById(`player-${num}`);
-    container.innerHTML = `<iframe src="${url}" allowfullscreen></iframe>`;
+    const serverList = document.getElementById(`servers-${num}`);
+
+    serverList.innerHTML = `
+      <span><strong>Servidores:</strong></span>
+      <ul style="list-style:none; padding-left:0; margin-top:8px; display:flex; gap:10px; flex-wrap:wrap;">
+        <li><button onclick="verEpisodio(${num}, 'StreamWish')">StreamWish</button></li>
+        <li><button onclick="verEpisodio(${num}, 'Mega')">Mega</button></li>
+        <li><button onclick="verEpisodio(${num}, 'StreamTape')">StreamTape</button></li>
+        <li><button onclick="verEpisodio(${num}, 'oKru')">oKru</button></li>
+      </ul>
+    `;
+
+    container.innerHTML = serverList.outerHTML + `<iframe src="${url}" allowfullscreen></iframe>`;
     container.style.display = 'block';
 
     document.querySelectorAll('.player-card').forEach(card => {
