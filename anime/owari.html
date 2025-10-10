@@ -353,6 +353,7 @@
     }
   };
 
+
   function cargarTemporada() {
     const episodeList = document.getElementById('episode-list');
     episodeList.innerHTML = '';
@@ -374,42 +375,48 @@
   }
 
   function verEpisodio(num, servidor = 'Mega') {
+    // Ocultar todos los reproductores primero
+    document.querySelectorAll('.player-card').forEach(card => {
+      card.style.display = 'none';
+      card.innerHTML = `<div class="server-list" id="servers-${card.id.split('-')[1]}" style="margin-bottom: 15px;"></div>`;
+    });
+
     const ep = temporadas.s1.episodios.find(e => e.num === num);
     const url = ep.servidores[servidor];
     const container = document.getElementById(`player-${num}`);
     const serverList = document.getElementById(`servers-${num}`);
 
     serverList.innerHTML = `
-  <div style="text-align: center;">
-    <span style="display: block; margin-bottom: 10px;"><strong>Servidores:</strong></span>
-    <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
-      <button onclick="verEpisodio(${num}, 'StreamWish')">StreamWish</button>
-      <button onclick="verEpisodio(${num}, 'Mega')">Mega</button>
-      <button onclick="verEpisodio(${num}, 'StreamTape')">StreamTape</button>
-      <button onclick="verEpisodio(${num}, 'oKru')">oKru</button>
-    </div>
-  </div>
-`;
+      <div style="text-align: center;">
+        <span style="display: block; margin-bottom: 10px;"><strong>Servidores:</strong></span>
+        <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+          <button onclick="verEpisodio(${num}, 'StreamWish')">StreamWish</button>
+          <button onclick="verEpisodio(${num}, 'Mega')">Mega</button>
+          <button onclick="verEpisodio(${num}, 'StreamTape')">StreamTape</button>
+          <button onclick="verEpisodio(${num}, 'oKru')">oKru</button>
+        </div>
+      </div>
+    `;
 
-    // Quitar clase activa de todos los botones de ese episodio
-document.querySelectorAll(`#servers-${num} button`).forEach(btn => {
-  btn.classList.remove('active-server');
-});
-
-// Agregar clase activa al botón seleccionado
-const activeBtn = document.querySelector(`#servers-${num} button[onclick*="'${servidor}'"]`);
-if (activeBtn) activeBtn.classList.add('active-server');
-
-
-    container.innerHTML = serverList.outerHTML + `<iframe src="${url}" allowfullscreen></iframe>`;
-    container.style.display = 'block';
-
-    document.querySelectorAll('.player-card').forEach(card => {
-      if (card.id !== `player-${num}`) {
-        card.style.display = 'none';
-        card.innerHTML = '';
-      }
+    // Marcar botón activo
+    document.querySelectorAll(`#servers-${num} button`).forEach(btn => {
+      btn.classList.remove('active-server');
     });
+    const activeBtn = document.querySelector(`#servers-${num} button[onclick*="'${servidor}'"]`);
+    if (activeBtn) activeBtn.classList.add('active-server');
+
+    // Crear y agregar el iframe sin duplicar
+    const iframe = document.createElement('iframe');
+    iframe.src = url;
+    iframe.allowFullscreen = true;
+    iframe.style.width = '100%';
+    iframe.style.maxWidth = '800px';
+    iframe.style.height = '450px';
+    iframe.style.borderRadius = '10px';
+    iframe.style.border = 'none';
+
+    container.appendChild(iframe);
+    container.style.display = 'block';
   }
 
   function cambiarTemporada() {
