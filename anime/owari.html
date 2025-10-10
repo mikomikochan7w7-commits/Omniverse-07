@@ -391,6 +391,15 @@
   </div>
 `;
 
+    // Quitar clase activa de todos los botones de ese episodio
+document.querySelectorAll(`#servers-${num} button`).forEach(btn => {
+  btn.classList.remove('active-server');
+});
+
+// Agregar clase activa al botón seleccionado
+const activeBtn = document.querySelector(`#servers-${num} button[onclick*="'${servidor}'"]`);
+if (activeBtn) activeBtn.classList.add('active-server');
+
 
     container.innerHTML = serverList.outerHTML + `<iframe src="${url}" allowfullscreen></iframe>`;
     container.style.display = 'block';
