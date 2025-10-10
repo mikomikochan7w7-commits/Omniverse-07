@@ -312,7 +312,7 @@ nav ul li a {
 }
 
 /* Botones de servidores no seleccionados */
-.server-list li button {
+.server-list button {
   background-color: #000;
   padding: 6px 12px;
   border-radius: 6px;
@@ -324,7 +324,7 @@ nav ul li a {
 }
 
 /* Hover para botones no seleccionados */
-.server-list li button:hover {
+.server-list button:hover {
   background-color: #00ff99;
   color: #0b0b0b;
 }
