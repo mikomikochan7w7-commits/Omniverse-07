@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buscador</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Buscador de Series y Animes</h1>
+    <a href="index.html"><button>🏠 Inicio</button></a>
+  </header>
+
+  <main>
+    <input type="text" id="search-input" placeholder="Buscar..." />
+    <button onclick="buscar()">🔍 Buscar</button>
+  </main>
+
+  <script>
+    function buscar() {
+      const entrada = document.getElementById('search-input').value.trim().toLowerCase();
+
+      const rutas = {
+        "owari": "anime/owari.html",
+        "owari no": "anime/owari.html",
+        "owari no seraph": "anime/owari.html",
+        "mieruko": "anime/Mieruko.html",
+        "radiant": "anime/radiant.html",
+        "dragon ball": "anime/dragonball.html",
+        "tio grand": "serie/TioGrand.html"
+        // Agregá más palabras clave aquí
+      };
+
+      if (rutas[entrada]) {
+        window.location.href = rutas[entrada];
+      } else {
+        alert("No se encontró ningún resultado para: " + entrada);
+      }
+    }
+  </script>
+</body>
+</html>
