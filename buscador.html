@@ -5,6 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Buscador</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    #sugerencias {
+      margin-top: 10px;
+      padding: 0;
+      list-style: none;
+      max-height: 150px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      background: #fff;
+    }
+    #sugerencias li {
+      padding: 8px;
+      cursor: pointer;
+    }
+    #sugerencias li:hover {
+      background-color: #eee;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -13,30 +31,69 @@
   </header>
 
   <main>
-    <input type="text" id="search-input" placeholder="Buscar..." />
+    <input type="text" id="search-input" placeholder="Buscar..." oninput="mostrarSugerencias()" />
     <button onclick="buscar()">🔍 Buscar</button>
+    <ul id="sugerencias"></ul>
   </main>
 
   <script>
+    const animes = {
+      "owari": "anime/owari.html",
+      "owari no": "anime/owari.html",
+      "owari no seraph": "anime/owari.html",
+      "mieruko": "anime/Mieruko.html",
+      "radiant": "anime/radiant.html",
+      "dragon ball": "anime/dragonball.html",
+      "divine": "anime/divine.html",
+      "divine gate": "anime/divine.html"
+    };
+
+    const series = {
+      "tio grand": "serie/TioGrand.html"
+    };
+
+    const peliculas = {
+      "your name": "peliculas/YourName.html",
+      "kimi no na wa": "peliculas/YourName.html"
+    };
+
+    const todasLasClaves = [
+      ...Object.keys(animes),
+      ...Object.keys(series),
+      ...Object.keys(peliculas)
+    ];
+
     function buscar() {
       const entrada = document.getElementById('search-input').value.trim().toLowerCase();
+      const resultado =
+        animes[entrada] || series[entrada] || peliculas[entrada];
 
-      const rutas = {
-        "owari": "anime/owari.html",
-        "owari no": "anime/owari.html",
-        "owari no seraph": "anime/owari.html",
-        "mieruko": "anime/Mieruko.html",
-        "radiant": "anime/radiant.html",
-        "dragon ball": "anime/dragonball.html",
-        "tio grand": "serie/TioGrand.html"
-        // Agregá más palabras clave aquí
-      };
-
-      if (rutas[entrada]) {
-        window.location.href = rutas[entrada];
+      if (resultado) {
+        window.location.href = resultado;
       } else {
         alert("No se encontró ningún resultado para: " + entrada);
       }
+    }
+
+    function mostrarSugerencias() {
+      const entrada = document.getElementById('search-input').value.trim().toLowerCase();
+      const sugerencias = document.getElementById('sugerencias');
+      sugerencias.innerHTML = "";
+
+      if (entrada.length === 0) return;
+
+      const coincidencias = todasLasClaves.filter(clave => clave.includes(entrada));
+
+      coincidencias.forEach(clave => {
+        const item = document.createElement("li");
+        item.textContent = clave;
+        item.onclick = () => {
+          document.getElementById('search-input').value = clave;
+          sugerencias.innerHTML = "";
+          buscar();
+        };
+        sugerencias.appendChild(item);
+      });
     }
   </script>
 </body>
