@@ -1,0 +1,319 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Las guerreras K-pop - Mini AnimeFLV</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .container {
+      padding: 30px;
+    }
+
+    .anime-info {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .anime-info img {
+      max-width: 300px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .anime-details {
+      flex: 1;
+      margin-top: -10px;
+    }
+
+    #anime-title {
+      font-size: 3.2em;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+
+    #anime-sinopsis {
+      margin-bottom: 15px;
+    }
+
+    .anime-details ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 0;
+    }
+
+    .anime-details ul li {
+      margin-bottom: 10px;
+      font-size: 1em;
+    }
+
+    .anime-details ul li strong {
+      color: #00ff37;
+      margin-right: 5px;
+    }
+
+    .anime-details ul li span {
+      color: #fff;
+    }
+
+    .action-buttons {
+      margin-top: 15px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .action-buttons a {
+      padding: 14px 28px;
+      font-size: 1.1em;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .action-buttons .descargar {
+      background-color: #22F0AC;
+      color: #0b0b0b;
+    }
+
+    .action-buttons .trailer {
+      background-color: #696969;
+      color: white;
+    }
+
+    .season-selector {
+      margin: 30px 0 30px;
+      text-align: center;
+    }
+
+    .season-selector select {
+      background-color: #1a1a1a;
+      color: #31EBB1;
+      font-weight: bold;
+      padding: 12px 24px;
+      border-radius: 8px;
+      border: 1px solid #31EBB1;
+      font-size: 1.1em;
+    }
+
+    .episode {
+      background-color: #1a1a1a;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .episode-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .episode img {
+      width: 120px;
+      border-radius: 10px;
+    }
+
+    .episode span {
+      font-weight: bold;
+      color: #00ff99;
+    }
+
+    .player-card {
+      margin-top: 15px;
+      background-color: #111;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      display: none;
+    }
+
+    .player-card iframe {
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+      border-radius: 10px;
+      border: none;
+    }
+
+    #loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0b0b0b;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    #loading-screen img {
+      width: 120px;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    #loading-screen p {
+      color: white;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mini AnimeFLV</h1>
+    <a href="../catalogo.html"><button>⬅ Volver al catálogo</button></a>
+  </header>
+
+  <div class="container">
+    <div class="anime-info">
+      <div style="text-align: center;">
+        <img id="anime-cover" src="https://nekonekonekogrr.wordpress.com/wp-content/uploads/2025/10/las-guerreras-k-pop.png" alt="Portada del anime">
+        <div class="season-selector">
+          <label for="season-select"><strong>Seleccionar Temporada:</strong></label><br><br>
+          <select id="season-select" onchange="cambiarTemporada()">
+            <option value="s1">S1: Las guerreras K-pop 1</option>
+          </select>
+        </div>
+      </div>
+      <div class="anime-details">
+        <h2 id="anime-title">Las guerreras K-pop</h2>
+        <p id="anime-sinopsis">Un supergrupo de k-pop usa sus poderes secretos para proteger a sus fans de amenazas sobrenaturales y de una banda rival de chicos decididos a robar corazones y mentes.</p>
+        <ul>
+          <li><strong>Cantidad de Peliculas:</strong> <span>1</span></li>
+          <li><strong>Temporadas:</strong> <span>1</span></li>
+          <li><strong>Idioma:</strong> <span>Español Latino</span></li>
+          <li><strong>Subtítulos:</strong> <span>NO</span></li>
+          <li><strong>Fecha de Estreno:</strong> <span>23 de agosto de 2025</span></li>
+          <li><strong>Mayoria de Edad:</strong> <span>10+</span></li>
+          <li><strong>Estado:</strong> <span>Finalizado</span></li>
+        </ul>
+        <div class="action-buttons">
+          <a href="https://mega.io/es/" target="_blank" class="descargar">Descargar Temporada 1</a>
+          <a href="https://www.youtube.com/watch?v=UQfYUYyhw1c" target="_blank" class="trailer">Ver Trailer</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="episodes" id="episode-list"></div>
+
+    <div id="loading-screen">
+      <div class="gif-wrapper">
+        <img src="https://i.pinimg.com/originals/04/29/89/04298998c4006e5847cf9ef157665b43.gif" alt="Cargando..." />
+      </div>
+      <p>Cargando temporada…</p>
+    </div>
+
+    <script>
+  const temporadas = {
+    s1: {
+      episodios: [
+        {
+          num: 1,
+          titulo: "Las guerreras K-pop",
+          thumbnail: "https://nekonekonekogrr.wordpress.com/wp-content/uploads/2025/10/episode_12.png?w=1024",
+          servidores: {
+            StreamWish: "https://streamwish.to/embed/placeholder",
+            Mega: "https://mega.nz/embed/placeholder",
+            StreamTape: "https://streamtape.com/e/placeholder",
+            oKru: "https://ok.ru/videoembed/placeholder"
+          }
+        }
+      ]
+    }
+  };
+
+
+  function cargarTemporada() {
+    const episodeList = document.getElementById('episode-list');
+    episodeList.innerHTML = '';
+    temporadas.s1.episodios.forEach(ep => {
+      const div = document.createElement('div');
+      div.className = 'episode';
+      div.innerHTML = `
+        <div class="episode-header">
+          <img src="${ep.thumbnail}" alt="Episodio ${ep.num}">
+          <span>Episodio ${ep.num}: ${ep.titulo}</span>
+          <button onclick="verEpisodio(${ep.num})">Ver</button>
+        </div>
+        <div class="player-card" id="player-${ep.num}">
+          <div class="server-list" id="servers-${ep.num}" style="margin-bottom: 15px;"></div>
+        </div>
+      `;
+      episodeList.appendChild(div);
+    });
+  }
+
+  function verEpisodio(num, servidor = 'Mega') {
+    // Ocultar todos los reproductores primero
+    document.querySelectorAll('.player-card').forEach(card => {
+      card.style.display = 'none';
+      card.innerHTML = `<div class="server-list" id="servers-${card.id.split('-')[1]}" style="margin-bottom: 15px;"></div>`;
+    });
+
+    const ep = temporadas.s1.episodios.find(e => e.num === num);
+    const url = ep.servidores[servidor];
+    const container = document.getElementById(`player-${num}`);
+    const serverList = document.getElementById(`servers-${num}`);
+
+    serverList.innerHTML = `
+      <div style="text-align: center;">
+        <span style="display: block; margin-bottom: 10px;"><strong>Servidores:</strong></span>
+        <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+          <button onclick="verEpisodio(${num}, 'StreamWish')">StreamWish</button>
+          <button onclick="verEpisodio(${num}, 'Mega')">Mega</button>
+          <button onclick="verEpisodio(${num}, 'StreamTape')">StreamTape</button>
+          <button onclick="verEpisodio(${num}, 'oKru')">oKru</button>
+        </div>
+      </div>
+    `;
+
+    // Marcar botón activo
+    document.querySelectorAll(`#servers-${num} button`).forEach(btn => {
+      btn.classList.remove('active-server');
+    });
+    const activeBtn = document.querySelector(`#servers-${num} button[onclick*="'${servidor}'"]`);
+    if (activeBtn) activeBtn.classList.add('active-server');
+
+    // Crear y agregar el iframe sin duplicar
+    const iframe = document.createElement('iframe');
+    iframe.src = url;
+    iframe.allowFullscreen = true;
+    iframe.style.width = '100%';
+    iframe.style.maxWidth = '800px';
+    iframe.style.height = '450px';
+    iframe.style.borderRadius = '10px';
+    iframe.style.border = 'none';
+
+    container.appendChild(iframe);
+    container.style.display = 'block';
+  }
+
+  function cambiarTemporada() {
+    const selected = document.getElementById('season-select').value;
+    const loader = document.getElementById('loading-screen');
+    loader.style.display = 'flex';
+
+    setTimeout(() => {
+      if (selected === 's2') {
+        window.location.href = 'Nagoya.html';
+      } else {
+        loader.style.display = 'none';
+        cargarTemporada();
+      }
+    }, 1800);
+  }
+
+  cargarTemporada();
+</script>
+</body>
+</html>
