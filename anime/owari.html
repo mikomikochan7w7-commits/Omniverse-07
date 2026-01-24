@@ -165,6 +165,70 @@
       font-size: 1.2em;
       font-weight: bold;
     }
+
+    /* =========================
+   PORTADA ANIME - RESPONSIVE
+========================= */
+
+#anime-cover {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 480 / 753;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  #anime-cover {
+    max-width: 220px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .anime-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #anime-title {
+    font-size: 2.2em;
+  }
+}
+
+    /* =========================
+   SERVIDORES RESPONSIVE
+========================= */
+
+.server-list {
+  margin: 15px 0;
+  padding: 15px;
+  background-color: #111;
+  border-radius: 10px;
+}
+
+/* Contenedor de botones */
+.server-list > div > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+/* Botones */
+.server-list button {
+  padding: 10px 14px;
+  font-size: 0.95em;
+  border-radius: 8px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .server-list button {
+    font-size: 1em;
+    padding: 12px;
+  }
+}
   </style>
 </head>
 <body>
