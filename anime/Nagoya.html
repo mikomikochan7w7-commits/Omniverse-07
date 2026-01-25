@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Owari no Seraph: Nagoya Kessen-hen - Mini AnimeFLV</title>
+  <title>Owari no Seraph - Omniverse</title>
   <link rel="stylesheet" href="../style.css" />
 
     <!-- Favicon desde WordPress -->
@@ -169,6 +169,70 @@
       font-size: 1.2em;
       font-weight: bold;
     }
+
+    /* =========================
+   PORTADA ANIME - RESPONSIVE
+========================= */
+
+#anime-cover {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 480 / 753;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  #anime-cover {
+    max-width: 220px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .anime-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #anime-title {
+    font-size: 2.2em;
+  }
+}
+
+    /* =========================
+   SERVIDORES RESPONSIVE
+========================= */
+
+.server-list {
+  margin: 15px 0;
+  padding: 15px;
+  background-color: #111;
+  border-radius: 10px;
+}
+
+/* Contenedor de botones */
+.server-list > div > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+/* Botones */
+.server-list button {
+  padding: 10px 14px;
+  font-size: 0.95em;
+  border-radius: 8px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .server-list button {
+    font-size: 1em;
+    padding: 12px;
+  }
+}
   </style>
 </head>
 <body>
@@ -211,12 +275,11 @@
     <div class="episodes" id="episode-list"></div>
 
     <div id="loading-screen">
-  <div class="gif-wrapper">
-    <img src="https://i.pinimg.com/originals/04/29/89/04298998c4006e5847cf9ef157665b43.gif" alt="Cargando..." />
-  </div>
-  <p>Cargando temporada…</p>
-</div>
-
+      <div class="gif-wrapper">
+        <img src="https://i.pinimg.com/originals/04/29/89/04298998c4006e5847cf9ef157665b43.gif" alt="Cargando..." />
+      </div>
+      <p>Cargando temporada…</p>
+    </div>
 
     <script>
   const temporadas = {
@@ -224,79 +287,140 @@
       episodios: [
         {
           num: 1,
-          titulo: "Mundo Humano",
-          thumbnail: "https://cdn.animeflv.net/screenshots/2250/1/th_3.jpg",
-          embed: "https://mega.nz/embed/LqZHhAbI#AAAAAAAAAADzPod3VK52RQAAAAAAAAAA8z6Hd1SudkU"
+          titulo: "El mundo del legado de sangre",
+          thumbnail: "https://cdn.animeflv.net/screenshots/1891/1/th_3.jpg",
+          servidores: {
+            StreamWish: "https://hglink.to/e/fsojy8bxd2ne",
+            Mega: "https://mega.nz/embed/SY8XSaDT#gtanSW2lX91XzR1X3FFzDpS0HlDDfM1B3LgFHROprFM",
+            StreamTape: "https://streamtape.com/e/1A03Vrxja1srx3/",
+            oKru: "https://ok.ru/videoembed/9557046135360?nochat=1"
+          }
         },
         {
           num: 2,
-          titulo: "Conexiones Complicadas",
-          thumbnail: "https://cdn.animeflv.net/screenshots/2250/2/th_3.jpg",
-          embed: "https://mega.nz/embed/KioVHJjR#AAAAAAAAAABDufdxVIxXugAAAAAAAAAAQ7n3cVSMV7o"
+          titulo: "La Humanidad Tras La Caída",
+          thumbnail: "https://cdn.animeflv.net/screenshots/1891/2/th_3.jpg",
+          servidores: {
+            StreamWish: "https://hglink.to/e/3nsybqdrlq2o",
+            Mega: "https://mega.nz/embed/DdEUUYyK#dVNaZA9AJv6SSgKJeB1APrD0trGeWg1qkIzY3F-8bjc",
+            StreamTape: "https://streamtape.com/e/8vGb90jXr1FozP6/",
+            oKru: "https://ok.ru/videoembed/9557047642688?nochat=1"
+          }
         },
         {
           num: 3,
-          titulo: "La ambición del Ejército Demonio Imperial Japonés",
-          thumbnail: "https://cdn.animeflv.net/screenshots/2250/3/th_3.jpg",
-          embed: "https://mega.nz/embed/placeholder"
+          titulo: "El Demonio Que Vive en Tu Corazon",
+          thumbnail: "https://cdn.animeflv.net/screenshots/1891/3/th_3.jpg",
+          servidores: {
+            StreamWish: "https://hglink.to/e/z5ndjnsngemc",
+            Mega: "https://mega.nz/embed/3IUTEKaQ#UFu8dQ3jv0dQgfM2aCAR6WW3Be9AbhR5kHyFTc5qGHE",
+            StreamTape: "https://streamtape.com/e/roXYwVWowMcaQk/",
+            oKru: "https://ok.ru/videoembed/9557048560192?nochat=1"
+          }
         },
         {
           num: 4,
-          titulo: "Las Órdenes del Demonio de la Luna",
-          thumbnail: "https://cdn.animeflv.net/screenshots/2250/4/th_3.jpg",
-          embed: "https://mega.nz/embed/placeholder"
+          titulo: "Mikaela el Vampiro",
+          thumbnail: "https://cdn.animeflv.net/screenshots/1891/4/th_3.jpg",
+          servidores: {
+            StreamWish: "https://hglink.to/e/q2mybdrjqp7g",
+            Mega: "https://mega.nz/embed/iIl2ALzQ#GpxVCNygXzk1L-R4mOin6MMoZQILAOf7ruI6okixNR8",
+            StreamTape: "https://streamtape.com/e/q9ez2P9kkdFzgBV/",
+            oKru: "https://ok.ru/videoembed/9557049870912?nochat=1"
+          }
         },
         {
           num: 5,
-          titulo: "Revuelta del Ganado",
-          thumbnail: "https://cdn.animeflv.net/screenshots/2250/5/th_3.jpg",
-          embed: "https://mega.nz/embed/placeholder"
+          titulo: "El Pacto Del Demonio Oscuro",
+          thumbnail: "https://nekonekonekogrr.wordpress.com/wp-content/uploads/2025/10/owwwwww-4.webp?w=1024",
+          servidores: {
+            StreamWish: "https://hglink.to/e/ppudy38tiuwk",
+            Mega: "https://mega.nz/embed/6Ft3FBhb#mYtddlc9QUhtPBvrKm-u6zB82_Wzjg8rec5nVNmpay0",
+            StreamTape: "https://streamtape.com/e/122xWJoDwlte4YG/",
+            oKru: "https:////ok.ru/videoembed/9557050985024?nochat=1"
+          }
         },
         {
           num: 6,
-          titulo: "Espada de la Justicia",
-          thumbnail: "https://cdn.animeflv.net/screenshots/2250/6/th_3.jpg",
-          embed: "https://mega.nz/embed/placeholder"
+          titulo: "Una Nueva Familia",
+          thumbnail: "https://cdn.animeflv.net/screenshots/1891/6/th_3.jpg",
+          servidores: {
+            StreamWish: "https://hglink.to/e/b699dvdr2xwr",
+            Mega: "https://mega.nz/embed/HIExiYKR#9HhOzpS4sSMvqWD-zyOQGSHntneumQcljB8P8HSVpLY",
+            StreamTape: "https://streamtape.com/e/ZbxWmaQ8qyfqq6d/",
+            oKru: "https:////ok.ru/videoembed/9557052426816?nochat=1"
+          }
         },
         {
           num: 7,
-          titulo: "Shinya y Guren",
-          thumbnail: "https://cdn.animeflv.net/screenshots/2250/7/th_3.jpg",
-          embed: "https://mega.nz/embed/placeholder"
+          titulo: "El Escuadrón De Mitsuba",
+          thumbnail: "https://cdn.animeflv.net/screenshots/1891/7/th_3.jpg",
+          servidores: {
+            StreamWish: "https://hglink.to/e/rcyf1l65u4ye",
+            Mega: "https://mega.nz/embed/jR8xwD4S#mlUKZZ6jH-dsCndi7MXeWF4mhPGBPpDJYakvSQL8CGw",
+            StreamTape: "https://streamtape.com/e/7Y2RVJ3oYrhApx8/",
+            oKru: "https:////ok.ru/videoembed/9557053213248?nochat=1"
+          }
         },
         {
           num: 8,
-          titulo: "Canción de Cuna del Demonio",
-          thumbnail: "https://cdn.animeflv.net/screenshots/2250/8/th_3.jpg",
-          embed: "https://mega.nz/embed/placeholder"
+          titulo: "El Inicio Del Exterminio",
+          thumbnail: "https://cdn.animeflv.net/screenshots/1891/8/th_3.jpg",
+          servidores: {
+            StreamWish: "https://hglink.to/e/2rxzrr6quj9q",
+            Mega: "https://mega.nz/embed/CM12HBzR#IacgXz2OIs3yIDRrVat8xs42W2h0LcKHCGQ57aAbYGA",
+            StreamTape: "https://streamtape.com/e/6jo2kOPo2QioLW/",
+            oKru: "https://ok.ru/videoembed/9557055441472?nochat=1"
+          }
         },
         {
           num: 9,
-          titulo: "Traidores Aliados",
-          thumbnail: "https://cdn.animeflv.net/screenshots/2250/9/th_3.jpg",
-          embed: "https://mega.nz/embed/placeholder"
+          titulo: "El Ataque De Los Vampiros",
+          thumbnail: "https://cdn.animeflv.net/screenshots/1891/9/th_3.jpg",
+          servidores: {
+            StreamWish: "https://hglink.to/e/zt9h1lhvw9yu",
+            Mega: "https://mega.nz/embed/jJMAHRLQ#WRvNqa0UZFE4mR7fpiKbW8LVmQudgfz4__pt--hpmJY",
+            StreamTape: "https://streamtape.com/e/Djr3A7Aja0IDbP/",
+            oKru: "https://ok.ru/videoembed/9557056424512?nochat=1"
+          }
         },
         {
           num: 10,
-          titulo: "Yū y Mika",
-          thumbnail: "https://cdn.animeflv.net/screenshots/2250/10/th_3.jpg",
-          embed: "https://mega.nz/embed/placeholder"
+          titulo: "El Resultado De Las Elecciones",
+          thumbnail: "https://cdn.animeflv.net/screenshots/1891/10/th_3.jpg",
+          servidores: {
+            StreamWish: "https://hglink.to/e/oi9qb6no7kx3",
+            Mega: "https://mega.nz/embed/TYcFmLIS#Z-tG14OYr8SFwriR-A5ETOcaGCEpfWfG_Y28RkCay-g",
+            StreamTape: "https://streamtape.com/e/9W0ZygXqXoca2aJ/",
+            oKru: "https://ok.ru/videoembed/9557058193984?nochat=1"
+          }
         },
         {
           num: 11,
-          titulo: "Amor Arrogante",
-          thumbnail: "https://cdn.animeflv.net/screenshots/2250/11/th_3.jpg",
-          embed: "https://mega.nz/embed/placeholder"
+          titulo: "El Rencuentro De Los Amigos De La Infancia…",
+          thumbnail: "https://cdn.animeflv.net/screenshots/1891/11/th_3.jpg",
+          servidores: {
+            StreamWish: "https://hglink.to/e/kq7zbmjw03ey",
+            Mega: "https://mega.nz/embed/DNUC1QqK#yQbJTkaCaB-2K57Y8z7CpLhDkFl2ufZfKJd3MKR4jQY",
+            StreamTape: "https://streamtape.com/e/appMbOpJAKcxvBr/",
+            oKru: "https://ok.ru/videoembed/9557059373632?nochat=1"
+          }
         },
         {
           num: 12,
-          titulo: "Serafín del Fin",
-          thumbnail: "https://cdn.animeflv.net/screenshots/2250/12/th_3.jpg",
-          embed: "https://mega.nz/embed/placeholder"
+          titulo: "Todos Pecadores",
+          thumbnail: "https://cdn.animeflv.net/screenshots/1891/12/th_3.jpg",
+          servidores: {
+            StreamWish: "https://hglink.to/e/2c7i0xmj1bj7",
+            Mega: "https://mega.nz/embed/TJVxDKYI#bohPQxtW8iv71uycxefoDqBkAVafIUjIlitXO54oGvc",
+            StreamTape: "https://streamtape.com/e/1x1G34jyboTJOD/",
+            oKru: "https://ok.ru/videoembed/9557060553280?nochat=1"
+          }
         }
       ]
     }
   };
+
 
   function cargarTemporada() {
     const episodeList = document.getElementById('episode-list');
@@ -310,25 +434,57 @@
           <span>Episodio ${ep.num}: ${ep.titulo}</span>
           <button onclick="verEpisodio(${ep.num})">Ver</button>
         </div>
-        <div class="player-card" id="player-${ep.num}"></div>
+        <div class="player-card" id="player-${ep.num}">
+          <div class="server-list" id="servers-${ep.num}" style="margin-bottom: 15px;"></div>
+        </div>
       `;
       episodeList.appendChild(div);
     });
   }
 
-  function verEpisodio(num) {
-    const ep = temporadas.s1.episodios.find(e => e.num === num);
-    const container = document.getElementById(`player-${num}`);
-    container.innerHTML = `<iframe src="${ep.embed}" allowfullscreen></iframe>`;
-    container.style.display = 'block';
-
-    // Ocultar otros reproductores
+  function verEpisodio(num, servidor = 'Mega') {
+    // Ocultar todos los reproductores primero
     document.querySelectorAll('.player-card').forEach(card => {
-      if (card.id !== `player-${num}`) {
-        card.style.display = 'none';
-        card.innerHTML = '';
-      }
+      card.style.display = 'none';
+      card.innerHTML = `<div class="server-list" id="servers-${card.id.split('-')[1]}" style="margin-bottom: 15px;"></div>`;
     });
+
+    const ep = temporadas.s1.episodios.find(e => e.num === num);
+    const url = ep.servidores[servidor];
+    const container = document.getElementById(`player-${num}`);
+    const serverList = document.getElementById(`servers-${num}`);
+
+    serverList.innerHTML = `
+      <div style="text-align: center;">
+        <span style="display: block; margin-bottom: 10px;"><strong>Servidores:</strong></span>
+        <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+          <button onclick="verEpisodio(${num}, 'StreamWish')">StreamWish</button>
+          <button onclick="verEpisodio(${num}, 'Mega')">Mega</button>
+          <button onclick="verEpisodio(${num}, 'StreamTape')">StreamTape</button>
+          <button onclick="verEpisodio(${num}, 'oKru')">oKru</button>
+        </div>
+      </div>
+    `;
+
+    // Marcar botón activo
+    document.querySelectorAll(`#servers-${num} button`).forEach(btn => {
+      btn.classList.remove('active-server');
+    });
+    const activeBtn = document.querySelector(`#servers-${num} button[onclick*="'${servidor}'"]`);
+    if (activeBtn) activeBtn.classList.add('active-server');
+
+    // Crear y agregar el iframe sin duplicar
+    const iframe = document.createElement('iframe');
+    iframe.src = url;
+    iframe.allowFullscreen = true;
+    iframe.style.width = '100%';
+    iframe.style.maxWidth = '800px';
+    iframe.style.height = '450px';
+    iframe.style.borderRadius = '10px';
+    iframe.style.border = 'none';
+
+    container.appendChild(iframe);
+    container.style.display = 'block';
   }
 
   function cambiarTemporada() {
@@ -338,7 +494,7 @@
 
     setTimeout(() => {
       if (selected === 's1') {
-        window.location.href = 'owari.html';
+        window.location.href = 'Owari.html';
       } else {
         loader.style.display = 'none';
         cargarTemporada();
